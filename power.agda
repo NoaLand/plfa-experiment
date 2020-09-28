@@ -1,23 +1,23 @@
 open import IO
-open import Data.Integer using (ℤ; +_; show)
 open import Data.String using (_++_)
+open import Data.Nat as N
+open import Data.Nat.Show as N
 
-data ℕ : Set where
-    zero : ℕ
-    suc : ℕ -> ℕ
+{- The definition of ℕ in Data.Nat -}
+-- data ℕ : Set where
+    -- zero : ℕ
+    -- suc : ℕ -> ℕ
 
-_+_ : ℕ -> ℕ -> ℕ
-zero + n = zero
-(suc m) + n = suc (m + n)
+_plus_ : ℕ -> ℕ -> ℕ
+zero plus n = n
+(suc m) plus n = suc (m plus n)
 
-_*_ : ℕ -> ℕ -> ℕ
-zero * n = zero
-(suc m) * n = n + (m * n)
+_time_ : ℕ -> ℕ -> ℕ
+zero time n = zero
+(suc m) time n = n plus (m time n)
 
-_^_ : ℕ -> ℕ -> ℕ
-m ^ zero = suc zero
-m ^ (suc n) = m * (m ^ n)
+_power_ : ℕ -> ℕ -> ℕ
+m power zero = suc zero
+m power (suc n) = m time (m power n)
 
-{-# BUILTIN NATURAL ℕ #-}
-{-# BUILTIN NATPLUS _+_ #-}
-{-# BUILTIN NATTIMES _*_ #-}
+main = run (putStrLn (N.show (2 power 10)))
