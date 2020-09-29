@@ -1,3 +1,7 @@
+import Relation.Binary.PropositionalEquality as Eq
+open Eq using (_≡_; refl)
+open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
+
 open import IO
 open import Data.String using (_++_)
 open import Data.Nat as N
@@ -20,4 +24,8 @@ _power_ : ℕ -> ℕ -> ℕ
 m power zero = suc zero
 m power (suc n) = m time (m power n)
 
-main = run (putStrLn (N.show (2 power 10)))
+{- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
+_ : 3 power 4 ≡ 3 ^ 4
+_ = refl
+
+main = run (putStrLn (N.show (3 power 4)))
