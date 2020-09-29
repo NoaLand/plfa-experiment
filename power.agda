@@ -13,15 +13,15 @@ open import Data.Nat.Show as N
     -- suc : ℕ -> ℕ
 
 _plus_ : ℕ -> ℕ -> ℕ
-zero plus n = n
+0 plus n = n
 (suc m) plus n = suc (m plus n)
 
 _time_ : ℕ -> ℕ -> ℕ
-zero time n = zero
+0 time n = 0
 (suc m) time n = n plus (m time n)
 
 _power_ : ℕ -> ℕ -> ℕ
-m power zero = suc zero
+m power 0 = 1
 m power (suc n) = m time (m power n)
 
 {- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
