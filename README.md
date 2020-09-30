@@ -10,7 +10,7 @@ For example, you can compile `power.agda` file by using the following command:
 
 ```shell
 $ mkdir build
-$ agda --compile-dir ./build --compile power.agda
+$ agda --no-main --compile-dir ./build --compile power.agda
 ```
 
 After building successfully, you can find there should be a binary file named `power` under the folder `build`, you can run this binary file directly.

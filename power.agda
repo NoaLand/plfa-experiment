@@ -5,20 +5,19 @@ open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
 open import IO
 open import Data.String using (_++_)
 open import Data.Nat as N
-open import Data.Nat.Show as N
 
 {- The definition of ℕ in Data.Nat -}
 -- data ℕ : Set where
     -- zero : ℕ
     -- suc : ℕ -> ℕ
 
-_plus_ : ℕ -> ℕ -> ℕ
-0 plus n = n
-(suc m) plus n = suc (m plus n)
+_add_ : ℕ -> ℕ -> ℕ
+0 add n = n
+(suc m) add n = suc (m add n)
 
 _time_ : ℕ -> ℕ -> ℕ
 0 time n = 0
-(suc m) time n = n plus (m time n)
+(suc m) time n = n add (m time n)
 
 _power_ : ℕ -> ℕ -> ℕ
 m power 0 = 1
@@ -28,4 +27,19 @@ m power (suc n) = m time (m power n)
 _ : 3 power 4 ≡ 3 ^ 4
 _ = refl
 
-main = run (putStrLn (N.show (3 power 4)))
+{- let's add a process to calculate 2 add 3 for example -}
+_ : 2 add 3 ≡ 5
+_ =
+    begin
+        2 add 3
+    ≡⟨⟩
+        (suc (suc 0)) add (suc (suc (suc 0)))
+    ≡⟨⟩
+        (suc ((suc 0) add (suc (suc (suc 0)))))
+    ≡⟨⟩
+        (suc (suc (0 add (suc (suc (suc 0))))))
+    ≡⟨⟩
+        (suc (suc (suc (suc (suc 0)))))
+    ≡⟨⟩
+        5
+    ∎
