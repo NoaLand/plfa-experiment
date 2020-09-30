@@ -32,7 +32,7 @@ m monus 0 = m
 _ : (suc (suc (suc (suc (suc (suc (suc zero))))))) ≡ 7
 _ = refl
 
-{- let's add a process to calculate 2 add 3 for example -}
+{- should return 5 when using 2 add 3 -}
 _ : 2 add 3 ≡ 5
 _ =
     begin
@@ -49,7 +49,7 @@ _ =
         5
     ∎
 
-{- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
+{- should proof power works correctly like nature provided -}
 _ : 3 power 4 ≡ 3 ^ 4
 _ = refl
 
