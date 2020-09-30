@@ -23,6 +23,11 @@ _power_ : ℕ -> ℕ -> ℕ
 m power 0 = 1
 m power (suc n) = m time (m power n)
 
+_monus_ : ℕ -> ℕ -> ℕ
+m monus 0 = m
+0 monus n = 0
+(suc m) monus (suc n) = m monus n
+
 {- proof for 7 with suc... zero -}
 _ : (suc (suc (suc (suc (suc (suc (suc zero))))))) ≡ 7
 _ = refl
@@ -46,4 +51,16 @@ _ =
 
 {- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
 _ : 3 power 4 ≡ 3 ^ 4
+_ = refl
+
+{- should return 1 when 3 monus 2 -}
+_ : 3 monus 2 ≡ 1
+_ = refl
+
+{- should return 0 if m is biger than n -}
+_ : 3 monus 5 ≡ 0
+_ = refl
+
+{- should return 0 if 0 monus any number -}
+_ : 0 monus 3 ≡ 0
 _ = refl
