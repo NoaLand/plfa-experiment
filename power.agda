@@ -23,8 +23,8 @@ _power_ : ℕ -> ℕ -> ℕ
 m power 0 = 1
 m power (suc n) = m time (m power n)
 
-{- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
-_ : 3 power 4 ≡ 3 ^ 4
+{- proof for 7 with suc... zero -}
+_ : (suc (suc (suc (suc (suc (suc (suc zero))))))) ≡ 7
 _ = refl
 
 {- let's add a process to calculate 2 add 3 for example -}
@@ -43,3 +43,7 @@ _ =
     ≡⟨⟩
         5
     ∎
+
+{- we use Reflexivity(refl) as proof for 3 power 4 is equal to 81 -}
+_ : 3 power 4 ≡ 3 ^ 4
+_ = refl
