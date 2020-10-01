@@ -2,6 +2,8 @@ import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; refl)
 open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
 
+open import Data.Nat as N
+
 {- The definition of ℕ in Data.Nat -}
 -- data ℕ : Set where
     -- zero : ℕ
