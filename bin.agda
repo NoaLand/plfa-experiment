@@ -10,10 +10,16 @@ data Bin : Set where
     _I : Bin -> Bin
 
 {- TODO: need to implement inc func -}
-inc : Bin -> Bin
-inc (<> O) = <> I
-inc (<> I) = <> I O
+-- inc : Bin -> Bin
+-- inc (<> O) = <> I
+-- inc (<> I) = <> I O
 
 {- should increase successfully -}
-_ : inc (<> O) ≡ <> I
+-- _ : inc (<> O) ≡ <> I
+-- _ = refl
+
+_ : (<> O) ≡ (<> O)
+_ = refl
+
+_ : (<> I) ≡ (<> I)
 _ = refl
