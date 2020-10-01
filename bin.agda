@@ -9,17 +9,32 @@ data Bin : Set where
     _O : Bin -> Bin
     _I : Bin -> Bin
 
-{- TODO: need to implement inc func -}
--- inc : Bin -> Bin
--- inc (<> O) = <> I
--- inc (<> I) = <> I O
+reverse_ : Bin -> Bin
+reverse <> = <>
+reverse (<> I) = (<> O)
+reverse (<> O) = (<> I)
 
-{- should increase successfully -}
--- _ : inc (<> O) ≡ <> I
--- _ = refl
+{- should reverce bin -}
+_ : reverse (<> O) ≡ (<> I)
+_ = refl
 
+{- should reverse any condition of Bin set -}
+_ : reverse (<> O O I) ≡ (<> I I O)
+_ = refl
+
+
+{- should proof Bin equality -}
 _ : (<> O) ≡ (<> O)
 _ = refl
 
 _ : (<> I) ≡ (<> I)
 _ = refl
+
+{- TODO: need to implement inc func -}
+-- inc : Bin -> Bin
+-- inc (<> O) = (<> I)
+-- inc (<> I) = (<> O)
+
+{- should increase successfully -}
+-- _ : inc (<> O) ≡ (<> I)
+-- _ = refl
