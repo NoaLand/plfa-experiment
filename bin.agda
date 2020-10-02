@@ -9,20 +9,6 @@ data Bin : Set where
     _O : Bin -> Bin
     _I : Bin -> Bin
 
-reverse_ : Bin -> Bin
-reverse <> = <>
-reverse (<> I) = (<> O)
-reverse (<> O) = (<> I)
-
-{- should reverce bin -}
-_ : reverse (<> O) ≡ (<> I)
-_ = refl
-
-{- should reverse any condition of Bin set -}
-_ : reverse (<> O O I) ≡ (<> I I O)
-_ = refl
-
-
 {- should proof Bin equality -}
 _ : (<> O) ≡ (<> O)
 _ = refl
